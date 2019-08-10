@@ -1,0 +1,455 @@
+
+<!------ Include the above in your HEAD tag ---------->
+
+
+<!DOCTYPE html><html lang='en' class=''>
+<head>
+  <!--<script src="https://kit.fontawesome.com/f75621122b.js"></script>
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script> -->
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styling.css')}}">
+  <script src="https://kit.fontawesome.com/f75621122b.js"></script>
+  <!--<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">-->
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+  <script src='//production-assets.codepen.io/assets/editor/live/console_runner-079c09a0e3b9ff743e39ee2d5637b9216b3545af0de366d4b9aad9dc87e26bfd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/events_runner-73716630c22bbc8cff4bd0f07b135f00a0bdc5d14629260c3ec49e5606f98fdd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/css_live_reload_init-2c0dc5167d60a5af3ee189d570b1835129687ea2a61bee3513dee3a50c115a77.js'></script><meta charset='UTF-8'><meta name="robots" content="noindex"><link rel="shortcut icon" type="image/x-icon" href="//production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" /><link rel="mask-icon" type="" href="//production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111" /><link rel="canonical" href="https://codepen.io/tobewan77/pen/xrwGdy?limit=all&page=4&q=nav+tabs" />
+
+<link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css'><link rel='stylesheet prefetch' href='https://www.jqueryscript.net/demo/jQuery-Plugin-To-Create-Responsive-Scrolling-Bootstrap-Tabs/jquery.scrolling-tabs.css'><link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic'><link rel='stylesheet prefetch' href='https://www.bts.com/fonts/digital-icons/style.css'>
+<link rel='stylesheet' type='text/css' href='{{ url_for('static', filename='styling.css')}}'>
+<style class="cp-pen-styles">/*digital colors */
+/* reset styles */
+a,
+a:hover {
+  color: initial;
+}
+.container {
+  margin: 2em auto 0 auto;
+}
+.nav-tabs {
+  border: none;
+}
+.nav-tabs>li>a {
+  padding: 0;
+  border: none;
+  background: none;
+}
+.nav-tabs>li.active>a,
+.nav-tabs>li.active>a:focus,
+.nav-tabs>li.active>a:hover {
+  border: none;
+  background: none;
+}
+.nav-tabs>li>a:hover {
+  background: none;
+  border: none;
+}
+.scrtabs-tabs-fixed-container {
+  height: initial;
+}
+.scrtabs-tabs-fixed-container ul.nav-tabs {
+  height: auto;
+}
+.scrtabs-tabs-fixed-container ul.nav-tabs > li {
+  white-space: initial;
+}
+.glyphicon {
+  font-family: 'icomoon';
+}
+.glyphicon-chevron-left:before {
+  content: "\e91c";
+}
+.glyphicon-chevron-right:before {
+  content: "\e91b";
+}
+/* end of reset styles */
+body {
+  color: #6d747e;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  line-height: 1.5em;
+}
+.noTop {
+  margin-top: 0;
+}
+.tall .nav-tabs li,
+.tall .scrtabs-tab-container {
+  height: 125px;
+}
+.tall .nav-tabs li .scrtabs-tab-scroll-arrow,
+.tall .scrtabs-tab-container .scrtabs-tab-scroll-arrow {
+  height: 123px;
+  padding: 0;
+  margin: 0;
+  border-top: 1px solid #ddd;
+}
+.tall .nav-tabs li .scrtabs-tab-scroll-arrow .glyphicon,
+.tall .scrtabs-tab-container .scrtabs-tab-scroll-arrow .glyphicon {
+  margin-top: 50px;
+}
+.tall .tab-content {
+  height: calc(100vh - (125px + 4em));
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+.tab-content {
+  margin: 0.7em 0;
+}
+.tab-content h2 {
+  color: #80cc28;
+  margin-bottom: 30px;
+}
+.tab-content h3 {
+  color: #434951;
+  font-weight: 600;
+}
+.nav-tabs>li.active {
+  cursor: default;
+  background: #fff;
+  color: #434951;
+  border: 1px solid #ddd;
+  border-top: 5px solid #80cc28;
+  border-bottom-color: transparent;
+}
+.nav-tabs>li {
+  padding: 1em 0.5em 0.5em;
+  border: 1px solid #fff;
+  border-top: 5px solid transparent;
+  border-radius: 0;
+  border-bottom-color: #ddd;
+  margin: 0;
+  min-width: 125px;
+  font-size: 16px;
+  max-width: 200px;
+  white-space: normal;
+  background: #f2f2f2;
+  transition: border-top ease-out 0.3s, background ease-out 0.3s;
+}
+.nav-tabs>li a {
+  color: #a8adb4;
+  transition: color ease-out 0.3s;
+}
+.nav-tabs>li:hover {
+  border-top: 5px solid #a8adb4;
+}
+.nav-tabs>li:hover a {
+  color: #6d747e;
+}
+.nav>li>a {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  line-height: 1.2em;
+  margin: 0;
+}
+.nav-tabs input {
+  position: relative;
+}
+.radiobtn input {
+  display: none;
+}
+.radiobtn > input + .icon {
+  background: url("https://www.bts.com/images/svg/icons/digital-icons/radio-button-empty.svg") no-repeat;
+  width: 25px;
+  height: 25px;
+}
+.radiobtn > input:checked + .icon {
+  background: url("https://www.bts.com/images/svg/icons/digital-icons/radio-button-selected.svg") no-repeat;
+  width: 25px;
+  height: 25px;
+}
+.scrtabs-tab-scroll-arrow {
+  color: #0ab9f0;
+  text-align: center;
+  background: #fff;
+  transition: background ease-out 0.3s, color ease-out 0.3s;
+}
+.scrtabs-tab-scroll-arrow:hover {
+  background: #0ab9f0;
+  color: #fff;
+}
+</style>
+
+</head><body>
+<div class="container tall">
+	<ul class="nav nav-tabs" role="tablist">
+	  <li role="presentation" class="active"> <!-- class="active" keeps this class active-->
+      <label class="radiobtn">
+        <input type="radio" name="options" id="option1" autocomplete="off" checked>
+        <div class="icon"></div>
+      </label>
+      <a href="#tab1" role="tab" data-toggle="tab">
+        Image Captioning
+      </a>
+    </li>
+	  <li role="presentation">
+      <label class="radiobtn">
+        <input type="radio" name="options" id="option2" autocomplete="off" checked>
+        <div class="icon"></div>
+      </label>
+      <a href="#tab2" role="tab" data-toggle="tab">
+        Sentiment Analysis
+      </a>
+    </li>
+	  <li role="presentation">
+      <label class="radiobtn">
+        <input type="radio" name="options" id="option3" autocomplete="off" checked>
+        <div class="icon"></div>
+      </label>
+      <a href="#tab3" role="tab" data-toggle="tab">Sentiment Analysis of Images</a>
+    </li>
+	  <li role="presentation">
+      <label class="radiobtn">
+        <input type="radio" name="options" id="option4" autocomplete="off" checked>
+        <div class="icon"></div>
+      </label>
+      <a href="#tab4" role="tab" data-toggle="tab">Object Detection</a>
+    </li>
+     <li role="presentation">
+      <label class="radiobtn">
+        <input type="radio" name="options" id="option5" autocomplete="off" checked>
+        <div class="icon"></div>
+      </label>
+      <a href="#tab5" role="tab" data-toggle="tab">Customer Lifetime Value</a>
+    </li>
+    <li role="presentation">
+      <label class="radiobtn">
+        <input type="radio" name="options" id="option6" autocomplete="off" checked>
+        <div class="icon"></div>
+      </label>
+      <a href="#tab6" role="tab" data-toggle="tab">Recommendation</a>
+    </li>
+    <li role="presentation">
+      <label class="radiobtn">
+        <input type="radio" name="options" id="option7" autocomplete="off" checked>
+        <div class="icon"></div>
+      </label>
+      <a href="#tab7" role="tab" data-toggle="tab">Social Media Branding</a>
+    </li>
+	</ul>
+
+   <!-- Tab panes -->
+	<div class="tab-content">
+	  <div role="tabpanel" class="tab-pane active" id="tab1">
+      <div class="row">
+		<div class="col-sm-12">
+			<h2>Upload Image to see the Caption</h2>
+		</div>
+	  </div>
+	  <div class="row">
+        <div class="col-md-6">
+
+          <div class="container">
+          	<div class="row">
+          	   <div class="col-md-6">
+          	      <form method="post" action="#" id="#">
+                        <div class="form-group files color">
+                          <label>Upload Your File </label>
+                          <input type="file" class="form-control" multiple="">
+                        </div>
+                    </form>
+          	  </div>
+          	</div>
+          </div>
+
+        </div>
+
+        <div class="col-md-6">
+          <div class="alert alert-primary" role="alert">
+            This is a primary alert—check it out!
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <!-----------------Sentiment Analysis Code Start Here-------------------------->
+	  <div role="tabpanel" class="tab-pane" id="tab2">
+      <div class="row">
+		<div class="col-lg-12">
+			<h2>Enter the Text to get the Sentiment</h2>
+		</div>
+	  </div>
+
+	  <div class="row">
+
+        <div class="col-md-6">
+          <div class = "input-group">
+             <span class = "input-group-addon">Enter Text Here</span>
+             <form action="/sentiment_analysis_prediction" method="post" enctype="multipart/form-data">
+             <input name = "text" class = "form-control" placeholder = "Text">
+             <input type="submit">
+             </form>
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <h1>Sentiment</h1>
+          <div class="alert alert-primary" role="alert">
+            {% if probability %}
+              {{ sentiment }}
+               {% endif %}
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <h1>Probability</h1>
+          <div class="alert alert-primary" role="alert">
+            {% if probability %}
+              {{ probability }}
+               {% endif %}
+          </div>
+        </div>
+
+        <!--Image -->
+            <div class="col-sm-6"></div>
+              {% if probability %}
+                <div class="col-sm-2"><h1>Emotion</h1>
+                <img src="{{ image }}" alt="Image">
+              {% endif %}
+            </div>
+        <!--Image-->
+      </div>
+    </div>
+      <!-------------Sentiment Analysis Code End------------------------->
+	  <div role="tabpanel" class="tab-pane" id="tab3">
+	  <div class="row">
+		<div class="col-lg-12">
+			<h2>Upload Image to get the Sentiment</h2>
+		</div>
+	  </div>
+      <div class="row">
+        <div class="col-md-6">
+
+          <div class="container">
+          	<div class="row">
+          	   <div class="col-md-6">
+          	      <form method="post" action="#" id="#">
+                        <div class="form-group files color">
+                          <label>Upload Your File </label>
+                          <input type="file" class="form-control" multiple="">
+                        </div>
+                    </form>
+          	  </div>
+          	</div>
+          </div>
+
+        </div>
+        <div class="col-md-6">
+
+          <div class="alert alert-primary" role="alert">
+            This is a primary alert—check it out!
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+	  <div role="tabpanel" class="tab-pane" id="tab4">
+      <div class="row">
+		<div class="col-lg-12">
+			<h2>Customer Experience</h2>
+		</div>
+	  </div>
+	  <div class="row">
+        <div class="col-md-6">
+
+          <p>Look at them, bloody Catholics, filling the bloody world up with bloody people they can't afford to bloody feed.</p>
+          <p>Oh and Jenkins, apparently your mother died this morning. All right, but apart from the sanitation, medicine, education, wine, public order, irrigation, roads, the fresh water system and public health, what have the Romans ever done for us?</p>
+          <p>Stwike him, Centuwion! Stwike him vewy wuffly! It's a Mr. Death, dear. He's here about the reaping.</p>
+        </div>
+        <div class="col-md-6">
+          <h3 class="noTop">Investment</h3>
+          <p>5 MTUs, $5M</p>
+          <h3>Results</h3>
+          <p>CSAT, Lead Left Deals, Income, Cap Mkts/Treasury Penetration, Client acquisition</p>
+        </div>
+
+      </div>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="tab5">
+      <div class="row">
+		<div class="col-lg-12">
+			<h2>Buy Online, Store Pickup</h2>
+		</div>
+	  </div>
+	  <div class="row">
+        <div class="col-md-6">
+
+          <p>Listen, strange women lyin' in ponds distributin' swords is no basis for a system of government. Supreme executive power derives from a mandate from the masses, not from some farcical aquatic ceremony.</p>
+          <p>The Lady of the Lake, her arm clad in the purest shimmering samite held aloft Excalibur from the bosom of the water, signifying by divine providence that I, Arthur, was to carry Excalibur. THAT is why I am your king. I'm Brian, and so's my wife!</p>
+          <p>You don't frighten us, English pig dogs. Go and boil your bottoms, you sons of a silly person. I blow my nose at you, so-called "Arthur King," you and all your silly English K-nig-hts. Oh, oh, I see! Running away, eh? You yellow bastards! Come back here and take what's coming to you! I'll bite your legs off!</p>
+        </div>
+        <div class="col-md-6">
+          <h3 class="noTop">Investment</h3>
+          <p>5 MTUs, $5M</p>
+          <h3>Results</h3>
+          <p>CSAT, Lead Left Deals, Income, Cap Mkts/Treasury Penetration, Client acquisition</p>
+        </div>
+      </div>
+    </div>
+
+    <div role="tabpanel" class="tab-pane" id="tab6">
+      <div class="row">
+		<div class="col-lg-12">
+			<h2>Size</h2>
+		</div>
+	  </div>
+	  <div class="row">
+        <div class="col-md-6">
+
+          <p>Oh, king eh? Very nice. And how'd you get that, eh? By exploiting the workers. By hanging on to outdated imperialist dogma which perpetuates the economic and social differences in our society. What is the capital of Assyria?</p>
+          <p>Are you suggesting coconuts migrate? Oh, oh, I see! Running away, eh? You yellow bastards! Come back here and take what's coming to you! I'll bite your legs off!</p>
+          <p>You don't frighten us, English pig dogs. Go and boil your bottoms, you sons of a silly person. I blow my nose at you, so-called "Arthur King," you and all your silly English K-nig-hts. I'm Brian, and so's my wife!</p>
+        </div>
+        <div class="col-md-6">
+          <h3 class="noTop">Investment</h3>
+          <p>5 MTUs, $5M</p>
+          <h3>Results</h3>
+          <p>CSAT, Lead Left Deals, Income, Cap Mkts/Treasury Penetration, Client acquisition</p>
+        </div>
+      </div>
+    </div>
+
+    <div role="tabpanel" class="tab-pane" id="tab7">
+      <div class="row">
+		<div class="col-lg-12">
+			<h2>Social Media Branding</h2>
+		</div>
+	  </div>
+	  <div class="row">
+        <div class="col-md-6">
+
+          <p>What is the capital of Assyria? Oh, oh, I see! Running away, eh? You yellow bastards! Come back here and take what's coming to you! I'll bite your legs off! Listen, strange women lyin' in ponds distributin' swords is no basis for a system of government. Supreme executive power derives from a mandate from the masses, not from some farcical aquatic ceremony.</p>
+          <p>Come and see the violence inherent in the system. Help! Help! I'm being repressed! Are you suggesting coconuts migrate?</p>
+          <p>The Lady of the Lake, her arm clad in the purest shimmering samite held aloft Excalibur from the bosom of the water, signifying by divine providence that I, Arthur, was to carry Excalibur. THAT is why I am your king.</p>
+          <p>I'm Brian, and so's my wife! Oh, king eh? Very nice. And how'd you get that, eh? By exploiting the workers. By hanging on to outdated imperialist dogma which perpetuates the economic and social differences in our society.</p>
+          <p>You don't frighten us, English pig dogs. Go and boil your bottoms, you sons of a silly person. I blow my nose at you, so-called "Arthur King," you and all your silly English K-nig-hts. I don't want to talk to you no more, you empty-headed animal food trough wiper! I fart in your general direction! Your mother was a hamster and your father smelt of elderberries!</p>
+        </div>
+        <div class="col-md-6">
+          <h3 class="noTop">Investment</h3>
+          <p>5 MTUs, $5M</p>
+          <h3>Results</h3>
+          <p>CSAT, Lead Left Deals, Income, Cap Mkts/Treasury Penetration, Client acquisition</p>
+        </div>
+      </div>
+    </div>
+
+	</div>
+
+</div>
+
+<script src='//production-assets.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js'></script><script src='https://code.jquery.com/jquery-1.12.0.min.js'></script><script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js'></script><script src='https://www.jqueryscript.net/demo/jQuery-Plugin-To-Create-Responsive-Scrolling-Bootstrap-Tabs/jquery.scrolling-tabs.js'></script>
+<script >$('.nav-tabs').scrollingTabs({
+  enableSwiping: true
+});
+
+$('.nav-tabs a').click(function(){
+    $(".tab-content").animate({ scrollTop: 0 }, 600);
+ });
+//# sourceURL=pen.js
+</script>
+</body></html>
