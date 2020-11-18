@@ -20,7 +20,7 @@ Keras==2.2.4
 Keras-Applications==1.0.8
 Keras-Preprocessing==1.1.0
 Markdown==3.1.1
-notebook==5.7.8
+notebook==6.1.5
 numpy==1.17.0
 pandas==0.25.0
 python-dateutil==2.8.0
