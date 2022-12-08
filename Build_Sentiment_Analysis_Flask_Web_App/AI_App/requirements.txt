@@ -1,4 +1,4 @@
-certifi==2019.6.16
+certifi==2022.12.7
 Cython==0.29.13
 decorator==4.4.0
 entrypoints==0.3
